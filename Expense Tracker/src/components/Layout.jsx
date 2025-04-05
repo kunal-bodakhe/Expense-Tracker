@@ -5,6 +5,7 @@ import Budget from "./Budget";
 import Filter from "./Filter";
 import Category from "./Category";
 import AddInfoButtons from "./AddInfoButtons";
+import ExpenseList from "./ExpenseList";
 import ExpenseChart from "./ExpenseChart";
 
 
@@ -18,10 +19,12 @@ function Layout() {
             <div className="layout"> 
                 <UserName />
                 <Budget/>
+                <div className="pieChart"><ExpenseChart/></div>
+                
                 <div className="filterSection">
                     <Filter/><Category/><AddInfoButtons/>
                 </div>
-                <ExpenseChart/>
+                <ExpenseList/>
             </div>
         </>
     )

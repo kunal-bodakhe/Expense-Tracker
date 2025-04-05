@@ -241,3 +241,8 @@
   padding: 5px 8px;
   margin: 12px 8px 0 8px;
 }
+
+.pieChart{
+  margin: -60px 0 0 0;
+  height: 300px;
+}

@@ -1,51 +1,53 @@
-import React from "react";
+// import React from "react";
+
+// function ExpenseChart(){
+
+//     return(
+//         <>
+        
+//         </>
+//     )
+// }
+
+// export default ExpenseChart;
+import React from 'react';
+import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
+
+const data01 = [
+  { name: 'Group A', value: 400 },
+  { name: 'Group B', value: 300 },
+  { name: 'Group C', value: 300 },
+  { name: 'Group D', value: 200 },
+];
+const data02 = [
+  { name: 'A1', value: 100 },
+  { name: 'A2', value: 300 },
+  { name: 'B1', value: 100 },
+  { name: 'B2', value: 80 },
+  { name: 'B3', value: 40 },
+  { name: 'B4', value: 30 },
+  { name: 'B5', value: 50 },
+  { name: 'C1', value: 100 },
+  { name: 'C2', value: 200 },
+  { name: 'D1', value: 150 },
+  { name: 'D2', value: 50 },
+];
 
 function ExpenseChart(){
+//   static demoUrl = 'https://codesandbox.io/s/pie-chart-of-two-levels-gor24';
 
-    return(
-        <>
-        <div className="container"> 
-            <div className="expenseChart">
-                <div className="expenseContent">
-                    <div>
-                        <h4>SrNo.</h4>
-                    </div>
-                    <div className="expenseTitle">
-                        <h4>Expense</h4>
-                    </div>
-                    <div className="amountTitle">
-                        <h4>Amount</h4>
-                    </div>
-                </div>
-                <div className="editExpense">
-                    <div>
-                        <h4>Edit/Delete</h4>
-                    </div>
-                </div>
-            </div>
-            <hr className="seperationLine"></hr>
-            <div  className="expenseList">
-                <div className="expenseDetails">
-                    <div className="srNo">
-                        <h4>1.</h4>
-                    </div>
-                    <div className="expense">
-                        <h4>Expense of shopping</h4>
-                    </div>
-                    <div className="expenseAmount">
-                        <h4>$200</h4>
-                    </div>
-                </div>
-                <div>
-                    <div className="editOptions">
-                        <button className="editButtons">Edit</button>
-                        <button className="editButtons">Delete</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </>
-    )
+//   render() {
+    return (
+      <ResponsiveContainer width="100%" height="100%">
+        <PieChart width={400} height={400}>
+          <Pie data={data01} dataKey="value" cx="50%" cy="50%" outerRadius={100} fill="#8884d8" />
+          {/* <Pie data={data02} dataKey="value" cx="50%" cy="50%" innerRadius={70} outerRadius={90} fill="#82ca9d" label /> */}
+        </PieChart>
+      </ResponsiveContainer>
+    );
+//   }
 }
 
+
 export default ExpenseChart;
+
