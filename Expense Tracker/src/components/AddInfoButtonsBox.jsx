@@ -1,13 +1,13 @@
 import React from "react";
 
 
-function AddInfoButtonsBox({icon,buttonName}){
+function AddInfoButtonsBox({icon,buttonName,...restProps}){
     return(
         <>
-            <div className="addInfoButtonsBox">
+            <button className="addInfoButtonsBox" {...restProps}>
                 <img src={icon} alt="add"></img>
                 <h3>{buttonName}</h3>
-            </div>
+            </button>
         </>
     )
 }

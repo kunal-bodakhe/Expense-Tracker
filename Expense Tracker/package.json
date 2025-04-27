@@ -10,8 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "bootstrap": "^5.3.5",
     "react": "^19.0.0",
+    "react-bootstrap": "^2.10.9",
     "react-dom": "^19.0.0",
+    "reactjs-popup": "^2.0.6",
     "recharts": "^2.15.1"
   },
   "devDependencies": {

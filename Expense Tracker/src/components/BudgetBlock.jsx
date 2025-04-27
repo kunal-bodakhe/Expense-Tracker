@@ -9,7 +9,7 @@ function BudgetBlock({expenseTitle, amount, Icon}) {
             <li className="budgetBox"> 
                 <div>
                     <h3 className="title">{expenseTitle}</h3>
-                    <h3 className="amount">{amount}</h3>
+                    <h3 className="amount">${amount}/m</h3>
                 </div>
                 <div>
                     <img className="icon" src={Icon} alt="BudgetEditIcon"></img>

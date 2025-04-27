@@ -1,6 +1,6 @@
 import React from "react";
 
-function ExpenseList(){
+function ExpenseList({handleEditPopup , handleDeletePopup}){
 
     return(
         <>
@@ -38,8 +38,8 @@ function ExpenseList(){
                 </div>
                 <div>
                     <div className="editOptions">
-                        <button className="editButtons">Edit</button>
-                        <button className="editButtons">Delete</button>
+                        <button className="editButtons" onClick={()=>{handleEditPopup(true)}}>Edit</button>
+                        <button className="editButtons" onClick={()=>{handleDeletePopup(true)}}>Delete</button>
                     </div>
                 </div>
             </div>

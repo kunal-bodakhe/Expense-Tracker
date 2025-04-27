@@ -1,13 +1,13 @@
 import React from "react";
 import closeButton from "../assets/closeButton.png";
 
-function AddExpensePopup({ handleExpensePopup }) {
+function EditExpenseDetails({ handleEditPopup }) {
   return (
     <>
 
       <div className="overlay">
         <div className="popup">
-          <h4>New Expense</h4>
+          <h4>Edit Expense</h4>
           <div>
             Description:
             <input
@@ -34,11 +34,11 @@ function AddExpensePopup({ handleExpensePopup }) {
             </select>
           </div>
           <button className="submitButton">Submit</button>
-          <button className="closeButton"><img  src={closeButton} onClick={()=>{handleExpensePopup(false)}}></img></button>
+          <button className="closeButton"><img  src={closeButton} onClick={()=>{handleEditPopup(false)}}></img></button>
         </div>
       </div>
     </>
   );
 }
 
-export default AddExpensePopup;
+export default EditExpenseDetails;
