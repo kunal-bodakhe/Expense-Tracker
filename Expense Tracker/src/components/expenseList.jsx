@@ -3,6 +3,11 @@ import React from "react";
 function ExpenseList({ handleEditPopup, handleDeletePopup }) {
 
     let expenses=JSON.parse(localStorage.getItem("expenses"));
+    const totalAmount = expenses.reduce(
+        (acc, expense) => acc + parseFloat(expense.expenseAmount),
+        0
+      );
+      localStorage.setItem("totalAmount", totalAmount.toString());
   return (
     <>
       <div className="container">

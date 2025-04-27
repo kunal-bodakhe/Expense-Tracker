@@ -21,6 +21,8 @@ function Layout() {
     const [EditExpense, setEditExpense] = useState(false)
     const [DeleteExpense, setDeleteExpense] = useState(false)
     const [BudgetAmount, setBudgetAmount] = useState(JSON.parse(localStorage.getItem("budget")));
+    const [totalExpense, setTotalExpense] = useState(JSON.parse(localStorage.getItem("totalAmount")))
+    const Availablelimit= BudgetAmount-totalExpense;
     
     // console.log({ AddExpense })
     // console.log({ AddBudget })
@@ -30,14 +32,14 @@ function Layout() {
             <HeaderName/>
             <div className="layout"> 
                 <UserName />
-                <Budget BudgetAmount={BudgetAmount}/>
+                <Budget BudgetAmount={BudgetAmount} totalExpense={totalExpense} Availablelimit={Availablelimit}/>
                 <div className="pieChart"><ExpenseChart/></div>
                 <div className="filterSection">
                     <Filter/><Category/><AddInfoButtons handleExpensePopup={setAddExpense} handleBudgetPopup={setAddBudget}/>
                 </div>
                 <ExpenseList handleEditPopup={setEditExpense} handleDeletePopup={setDeleteExpense}/>
             </div>
-            {AddExpense && <AddExpensePopup handleExpensePopup={setAddExpense}/>}
+            {AddExpense && <AddExpensePopup handleExpensePopup={setAddExpense} setTotalExpense={setTotalExpense}/>}
             {AddBudget && <AddBudgetPopup handleBudgetPopup={setAddBudget} BudgetAmount={BudgetAmount} setBudgetAmount={setBudgetAmount}/>}
             {EditExpense && <EditExpenseDetails handleEditPopup={setEditExpense}/>}
             {DeleteExpense && <DeleteExpenseDetails handleDeletePopup={setDeleteExpense}/>}
