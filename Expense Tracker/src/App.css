@@ -212,7 +212,7 @@
   justify-content: space-between;
 }
 .srNo{
-  width: 102px;
+  /* width: 102px; */
   text-align: start;
 }
 .srNoTitle{
