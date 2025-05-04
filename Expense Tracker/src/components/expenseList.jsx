@@ -1,13 +1,48 @@
 import React from "react";
+import EditExpenseDetails from "./EditExpenseDetails";
 
-function ExpenseList({ handleEditPopup, handleDeletePopup }) {
+function ExpenseList({ handleEditPopup, handleDeletePopup , setEditedExpense , setDeleteindex ,setEditIndex, Food,Groceries,Travel,Health}) {
+  let expenses=JSON.parse(localStorage.getItem("expenses"));
+  // let expenses=[];
 
-    let expenses=JSON.parse(localStorage.getItem("expenses"));
+
+    if(Food==true){
+      let original=JSON.parse(localStorage.getItem("expenses"));
+      expenses=original.filter((expense)=>expense.category==="Food");
+      
+      // return expenses;
+      console.log(expenses);
+    }
+    else if(Health==true){
+      let original=JSON.parse(localStorage.getItem("expenses"));
+      expenses=original.filter((expense)=>expense.category==="Health");
+      
+      // return expenses;
+      console.log(expenses);
+    }
+    else if(Groceries==true){
+      let original=JSON.parse(localStorage.getItem("expenses"));
+      expenses=original.filter((expense)=>expense.category==="Groceries");
+      
+      // return expenses;
+      console.log(expenses);
+    }
+    else if(Travel==true){
+      let original=JSON.parse(localStorage.getItem("expenses"));
+      expenses=original.filter((expense)=>expense.category==="Travel");
+      
+      // return expenses;
+      console.log(expenses);
+    }
+    else{
+      expenses=JSON.parse(localStorage.getItem("expenses"));
     const totalAmount = expenses.reduce(
         (acc, expense) => acc + parseFloat(expense.expenseAmount),
         0
       );
       localStorage.setItem("totalAmount", totalAmount.toString());
+    // return expenses;
+    }
   return (
     <>
       <div className="container">
@@ -52,7 +87,11 @@ function ExpenseList({ handleEditPopup, handleDeletePopup }) {
                     <button
                       className="editButtons"
                       onClick={() => {
-                        handleEditPopup(true, expense);
+                        handleEditPopup(true, expense,index);
+                        setEditedExpense(expense);
+                        setEditIndex(index);
+                        // console.log(EditedExpense)
+                        
                       }}
                     >
                       Edit
@@ -60,7 +99,9 @@ function ExpenseList({ handleEditPopup, handleDeletePopup }) {
                     <button
                       className="editButtons"
                       onClick={() => {
-                        handleDeletePopup(true, expense);
+                        handleDeletePopup(true, index);
+                        setDeleteindex(index);
+                        // console.log(index)
                       }}
                     >
                       Delete

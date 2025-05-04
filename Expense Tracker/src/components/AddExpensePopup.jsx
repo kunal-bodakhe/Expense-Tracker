@@ -25,7 +25,7 @@ function AddExpensePopup({ handleExpensePopup, setTotalExpense }) {
       0
     );
     setTotalExpense(totalAmount);
-    console.log(totalAmount)
+    // console.log(totalAmount)
     localStorage.setItem("totalAmount", totalAmount.toString());
     // setTotalExpense(totalAmount);
   };

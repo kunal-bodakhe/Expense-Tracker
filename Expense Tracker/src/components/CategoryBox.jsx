@@ -1,14 +1,14 @@
 import React from "react";
 
-function CategoryBox({CategoryIcon, CategoryName}) {
+function CategoryBox({CategoryIcon, CategoryName,...restProps}) {
     
 
     return(
         <>
-            <div className="CategoryBox">
+            <button className="CategoryBox" {...restProps}>
                 <img src={CategoryIcon} alt="food"></img>
                 <h3>{CategoryName}</h3>
-            </div>
+            </button>
         </>
     )
 }
