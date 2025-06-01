@@ -1,10 +1,14 @@
 import React from "react";
 
-function Filter() {
-
+function Filter({setSearchText}) {
+    
     return(
         <>
-            <input type="text" className="searchBar" placeholder="search"></input>
+            <input className="searchBar"
+            type="text"
+            placeholder="Search by description"
+            onKeyUp={(e) => setSearchText(e.target.value)}
+            ></input>
         </>
     )
     

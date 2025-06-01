@@ -10,16 +10,26 @@ function EditExpenseDetails({ handleEditPopup , EditedExpense, EditIndex , setTo
   
     const handleSubmit = (e) => {
       e.preventDefault();
-      const expense = {
-        description,
-        expenseAmount,
-        category,
-      };
+
+      let expense = {}
+      if (description) {
+        expense["description"] = description
+      }
+      if (expenseAmount) {
+        expense["expenseAmount"] = expenseAmount
+      }
+      if (category) {
+        expense["category"] = category
+      }
+  
       const expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+  
       // expenses.push(expense);
 
-      expenses[EditIndex] = expense;  
-      localStorage.setItem("expenses", JSON.stringify(expenses));
+      expenses[EditIndex] = { ...expenses[EditIndex] , ...expense};  
+      console.log(expenses)
+      
+      // localStorage.setItem("expenses", JSON.stringify(expenses));
       handleEditPopup(false);
   
       const totalAmount = expenses.reduce(

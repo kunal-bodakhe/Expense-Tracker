@@ -10,12 +10,16 @@ function AddExpensePopup({ handleExpensePopup, setTotalExpense }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!description.trim() || !expenseAmount || !category) {
+      alert("All fields are required.");
+      return;
+    }
     const expense = {
       description,
       expenseAmount,
       category,
     };
-    const expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+    let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
     expenses.push(expense);
     localStorage.setItem("expenses", JSON.stringify(expenses));
     handleExpensePopup(false);
@@ -43,6 +47,7 @@ function AddExpensePopup({ handleExpensePopup, setTotalExpense }) {
               placeholder="Expense description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
+              required
             />
           </div>
           <div>
@@ -53,6 +58,7 @@ function AddExpensePopup({ handleExpensePopup, setTotalExpense }) {
               placeholder="In dollars"
               value={expenseAmount}
               onChange={(e) => setExpenseAmount(e.target.value)}
+              required
             />
           </div>
           <div>

@@ -243,8 +243,10 @@
 }
 
 .pieChart{
-  margin: -60px 0 0 0;
-  height: 300px;
+  display: flex;
+  justify-content: center;
+  margin: -100px 0 0 0;
+  height: 430px;
 }
 .closeButton{
   background-color: white;

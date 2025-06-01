@@ -15,6 +15,12 @@ import DeleteExpenseDetails from "./DeleteExpenseDetails";
 
 
 function Layout() {
+    // let expenseArr=[{
+    //     description:"Cola",
+    //     expenseAmount:20,
+    //     category:"Food"
+    //   },];
+    //   localStorage.setItem("expenses",JSON.stringify(expenseArr));
 
     const [AddExpense, setAddExpense] = useState(false);
     const [AddBudget, setAddBudget] = useState(false);
@@ -31,6 +37,8 @@ function Layout() {
     const [Travel, setTravel] = useState(false);
     const [Health, setHealth] = useState(false);
 
+    const [searchText, setSearchText] = useState("");
+
     
     // console.log({ AddExpense })
     // console.log({ AddBudget })
@@ -43,9 +51,9 @@ function Layout() {
                 <Budget BudgetAmount={BudgetAmount} totalExpense={totalExpense} Availablelimit={Availablelimit}/>
                 <div className="pieChart"><ExpenseChart/></div>
                 <div className="filterSection">
-                    <Filter/><Category setFood={setFood} setGroceries={setGroceries} setTravel={setTravel} setHealth={setHealth}/><AddInfoButtons handleExpensePopup={setAddExpense} handleBudgetPopup={setAddBudget}/>
+                    <Filter setSearchText={setSearchText}/><Category setFood={setFood} setGroceries={setGroceries} setTravel={setTravel} setHealth={setHealth}/><AddInfoButtons handleExpensePopup={setAddExpense} handleBudgetPopup={setAddBudget}/>
                 </div>
-                <ExpenseList handleEditPopup={setEditExpense} handleDeletePopup={setDeleteExpense} setEditedExpense={setEditedExpense} setDeleteindex={setDeleteindex} setEditIndex={setEditIndex} Food={Food} Groceries={Groceries} Travel={Travel} Health={Health}/>
+                <ExpenseList searchText={searchText} handleEditPopup={setEditExpense} handleDeletePopup={setDeleteExpense} setEditedExpense={setEditedExpense} setDeleteindex={setDeleteindex} setEditIndex={setEditIndex} Food={Food} Groceries={Groceries} Travel={Travel} Health={Health}/>
             </div>
             {AddExpense && <AddExpensePopup handleExpensePopup={setAddExpense} setTotalExpense={setTotalExpense}/>}
             {AddBudget && <AddBudgetPopup handleBudgetPopup={setAddBudget} BudgetAmount={BudgetAmount} setBudgetAmount={setBudgetAmount}/>}

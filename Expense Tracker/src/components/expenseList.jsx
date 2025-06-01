@@ -1,38 +1,25 @@
 import React from "react";
-import EditExpenseDetails from "./EditExpenseDetails";
+import { useState } from "react";
+// import EditExpenseDetails from "./EditExpenseDetails";
 
-function ExpenseList({ handleEditPopup, handleDeletePopup , setEditedExpense , setDeleteindex ,setEditIndex, Food,Groceries,Travel,Health}) {
-  let expenses=JSON.parse(localStorage.getItem("expenses"));
-  // let expenses=[];
+function ExpenseList({searchText, handleEditPopup, handleDeletePopup , setEditedExpense , setDeleteindex ,setEditIndex, Food,Groceries,Travel,Health}) {
 
-
+  let original=JSON.parse(localStorage.getItem("expenses"));
+  // let [expenses, setexpenses] = useState([]);
+  let expenses=JSON.parse(localStorage.getItem("expenses")) || [];
+ 
+  
     if(Food==true){
-      let original=JSON.parse(localStorage.getItem("expenses"));
       expenses=original.filter((expense)=>expense.category==="Food");
-      
-      // return expenses;
-      console.log(expenses);
     }
     else if(Health==true){
-      let original=JSON.parse(localStorage.getItem("expenses"));
       expenses=original.filter((expense)=>expense.category==="Health");
-      
-      // return expenses;
-      console.log(expenses);
     }
     else if(Groceries==true){
-      let original=JSON.parse(localStorage.getItem("expenses"));
       expenses=original.filter((expense)=>expense.category==="Groceries");
-      
-      // return expenses;
-      console.log(expenses);
     }
     else if(Travel==true){
-      let original=JSON.parse(localStorage.getItem("expenses"));
       expenses=original.filter((expense)=>expense.category==="Travel");
-      
-      // return expenses;
-      console.log(expenses);
     }
     else{
       expenses=JSON.parse(localStorage.getItem("expenses"));
@@ -42,6 +29,12 @@ function ExpenseList({ handleEditPopup, handleDeletePopup , setEditedExpense , s
       );
       localStorage.setItem("totalAmount", totalAmount.toString());
     // return expenses;
+    }
+
+    if (searchText && searchText.trim() !== "") {
+      expenses = expenses.filter((expense) =>
+        expense.description.toLowerCase().includes(searchText.toLowerCase())
+      );
     }
   return (
     <>
